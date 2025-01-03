@@ -22,7 +22,16 @@ const Navbar = () => {
                 <ul className="hidden lg:flex items-center space-x-4 ml-14">
                     {navItems.map((item, index) => (
                         <li key={index}>
-                            <a href={item.href} className="hover:text-orange-500 transition duration-200">{item.label}</a>
+                            <a 
+                                href={item.href} 
+                                className="hover:text-orange-500 cursor-pointer"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    document.getElementById(item.href.split('#')[1]).scrollIntoView({ behavior: 'smooth' });
+                                }}
+                            >
+                                {item.label}
+                            </a>
                         </li>
                     ))}
                 </ul>
@@ -46,7 +55,16 @@ const Navbar = () => {
                     <ul>
                         {navItems.map((item, index) => (
                             <li key={index} className="py-4">
-                                <a href={item.href}>{item.label}</a>
+                                <a 
+                                    href={item.href}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        document.getElementById(item.href.split('#')[1]).scrollIntoView({ behavior: 'smooth' });
+                                        setMobileDrawerOpen(false);
+                                    }}
+                                >
+                                    {item.label}
+                                </a>
                             </li>
                         ))}
                     </ul>

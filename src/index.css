@@ -8,3 +8,8 @@
   font-family: "Poppins", sans-serif;
   color-scheme: dark;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* Adjusts for fixed navbar height */
+}
